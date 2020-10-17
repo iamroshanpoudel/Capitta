@@ -10,9 +10,9 @@ def verify_bot_access():
 def verify_token(request):
     token_received = request.args.get("hub.verify_token")
     if token_received == VERIFY_TOKEN:
-        return request.args.get("hub.challange")
+        return request.args.get("hub.challenge")
     else:
         return "Access Denied"
-        
+
     
 
