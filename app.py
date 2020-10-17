@@ -9,6 +9,10 @@ def webhook():
     if request.method == "GET":
         return authenticate.verify_token(request)
     else:
+        json = request.get_json()
+        print(json)
+        message = json["entry"][0]["messaging"][0]["message"]["text"]
+        user_id = json["entry"][0]["messaging"][0]["sender"]["id"]
         bot.send_text_message(user_id, "Hello This is The Bot")
 
 
